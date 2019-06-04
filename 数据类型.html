@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			1.分类
+			 (1)基本类型
+			  *	String 任意字符串
+			  * Number 任意数字
+			  * boolean true/false
+			  * undefined undefined
+			  * null null
+			 (2)对象类型(引用) 
+			 * Object 任意的对象
+			 * function 一种特别的对象(可以执行一段代码)
+			 * *Array 一种特别的对象(属性是数值下标,内部数据是有序的)
+			2.判断数据类型
+			 * typeof
+			 	* 可以判断 undefined/数值类型/字符串/boolean
+			 	* 不能判断: null与Object Object与Array 
+			 * instanceof:专门用来判断对象的具体类型
+			 * ===
+			 	* 可以判断 undefined/null
+			
+		-->
+	
+	</body>
+	<script type="text/javascript">
+		//基本
+		//typeof判断数据类型(返回数据类型的字符串表达)
+		var a;
+		console.log(a , typeof a ,typeof a === "undefined",a === undefined) //undefined "undefined" true true
+		a = 3;
+		console.log(typeof a === 'number')
+		a = 'wwwwwwww';
+		console.log(typeof a === 'string');
+		a = true;
+		console.log(typeof a === 'boolean');
+		a = null;
+		console.log(typeof a,a===null)
+		console.log('----------------------------')
+		//判断具体对象类型
+		var b1 = {
+			b2:[1,'abc',console.log],
+			b3:function(){
+				console.log('b3');
+				return function (){
+					return 'rrrrrrrrrrrr'
+				}
+			}
+		}
+		//用instanceof判断具体的对象类型是
+		/*
+		 已obj为例
+		 `如果obj为对象
+		 * obj instanceof Object 输出为true
+		 * obj instanceof Array 输出为false
+		 * obj instanceof Function 输出为false
+		 `如果obj为数组
+		 * obj instanceof Object 输出为true
+		 * obj instanceof Array 输出为true
+		 * obj instanceof Function 输出为false
+		 `如果obj为函数
+		 * obj instanceof Object 输出为true
+		 * obj instanceof Array 输出为false
+		 * obj instanceof Function 输出为true
+		 * 总结 对象数据类型有三种形式function,Array,object,instanceof可以具体判断该对象具体是那种形式
+		 * 	1: {},[],function  instanceof Object 输出全true
+		 *  2: []  instanceof Array  输出为true,其他为false
+		 *  3: function()  instanceof Function  输出为true,其他为false
+		 * */
+		console.log(b1 instanceof Object,b1 instanceof Array)//true false
+		console.log(b1.b2 instanceof Array,b1.b2 instanceof Object)//true true
+		console.log(b1.b3 instanceof Function,b1.b3 instanceof Object)//true true
+		console.log(typeof b1.b3 === 'function')//true
+		console.log(typeof b1.b2[2] === 'function')/true
+		b1.b2[2](4);
+		var c = b1.b3()();
+		console.log(c)
+	</script>
+</html>

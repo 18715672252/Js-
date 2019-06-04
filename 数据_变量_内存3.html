@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		//关于引用变量赋值的问题
+		/*
+		 
+		 * 多个引用变量指向同一个对象,通过一个变量修改对象内部的数据,另一个变量看到的是修改之后的数据
+		 * 
+		 * 
+		 * 
+		 * 
+		 * */
+		var obj1 = {name:'tom'};
+		var obj2 = obj1;//obj1保存的内容赋值给obj2 , 只不过obj1保存的是{name:'tom'}的地址值
+		obj1.name = 'jack';
+		console.log(obj2.name)//jack
+		
+		function fn (obj) {
+			obj.name = 'A'
+		}
+		fn(obj1)
+		console.log(obj2.name)//A
+		var a = {age:12};
+		var b = a;
+		a = {name:'BOb',age:13};//由于给a从新赋值了 , 所以a保存的原来对象地址值改变了 (为现有对象的地址值), a和b保存的内容(对象地址值)不再是指向同一个对象的地址值,只要给a重新赋值那么a就和原来的对象没有任何关系,但是此时b还是保存原来对象的地址值
+		b.age = 14;
+		console.log(b.age,a.name,a.age);
+		//打印13的原因
+		/*
+		 
+		 * 
+		 * 调用函数fn2时详细过程是
+		 * var obj = a;此时obj = {name:'BOb',age:13}此时obj和a保存的是同一个对象的地址值
+		 * obj = {age:15}此时因为给obj从新赋值 , 所以obj保存的是另一个对象地址值 , obj和a不在有关系
+		 * 解释:调用函数时先把a赋值给形参 , 然后在重新给形参赋值
+		 * 
+		 * */
+		function fn2 (obj){
+			obj = {age:15}
+		};
+		fn2(a)
+		console.log(a.age)//13
+	</script>
+</html>

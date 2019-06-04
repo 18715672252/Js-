@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			1.函数的prototype
+			*每个函数都有一个prototype属性,他指向一个Object空对象(即该函数的原型对象)
+			*该函数的原型对象中有一个属性constructor,它指向该函数
+			2.给原型对象添加属性(一般都是方法)
+			*作用:函数的所有实例对象都拥有原型中的属性(方法)
+			
+			原型上的方法是给实例对象用的
+			3.理解
+			注释:函数Type他有一个属性prototype(地址值)他指向函数Type的原型对象(即一个空对象),而数Type的原型对象里面有一个constructor属性指向函数Type
+			通过函数的prototype属性能找到该函数的原型对象,而通过该函数的原型对象中的constructor属性又能找到该函数(即原型连)
+		-->
+		<img src="img/hanshu.jpg"/>
+	</body>
+	<script type="text/javascript">
+		console.log(Date.prototype, typeof Date.prototype)
+		function Fun (){//Alt+shift+r
+			
+		}
+		console.log(Fun.prototype)//Object空对象(没有我们的属性)
+		Fun.prototype.test = function (){
+			console.log('test')
+		}
+		console.log(Fun.prototype)
+		//原型对象中有一个属性constructor,它指向函数对象
+		console.log(Date.prototype.constructor === Date)
+		console.log(Fun.prototype.constructor === Fun);
+		//给原型对象添加属性(一般都是方法) ====>实例对象可以访问
+		
+	</script>
+</html>

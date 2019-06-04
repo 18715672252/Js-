@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		//函数调用时传递变量参数时,是值传递还是引用传递
+		//打印3的原因,调用函数时, 是把全局变量a保存的值传递给形参a(变量赋值是把某个变量保存的内容赋值给另一个变量)
+		//函数调用(有参数)执行的过程1.首先读取实参保存的值  2.把实参保存的值赋值给形参(局部变量)  注释:参数传递把一个变量(实参即传给函数的变量)赋值给另一个变量(形参)
+		//理解1.都是值传递(变量保存的内容,变量可能保存的是基本变量或者是地址值),
+		//理解2.可能值传递,也可能引用传递(地址值)
+		var a = 3;
+		function fn (a) {
+			a = a + 1;
+		}
+		fn(a);
+		console.log(a)//3
+		function fn2 (obj) {
+			console.log(obj.name)
+		}
+		var obj = {name:'Tom'}
+		fn2(obj);
+	</script>
+</html>

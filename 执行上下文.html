@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			1.代码分类
+			* 全局代码
+			* 函数代码
+			2.全局执行上下文
+			*在执行全局代码前将window确定为全局执行上下文
+			* 对全局数据进行预处理
+			* var定义的全局变量==>undefined,添加为window属性
+			* function声明的全局函数===>赋值,添加为window方法
+			* this赋值===>window
+			* 执行全局代码
+			3.函数执行上下文
+			* 在调用函数,准备执行函数体之前 , 创建对应的函数执行上下文对象(虚拟的 , 存放在栈中)
+			* 对局部数据进行预处理
+			* 形参==>赋值(实参)==>添加为执行上下文属性
+			* agruments==>赋值(实现列表),添加为执行上下文属性
+			* var定义的局部变量==>undefined,添加为执行上下文属性
+			* function声明的函数===>赋值,添加为执行上下文属性
+			* this调用函数的对象
+			* 执行函数体代码
+			
+			
+		-->
+	</body>
+	<script type="text/javascript">
+		console.log(a,window.a);
+		var a = 3;
+		
+		//函数执行上下文
+		function fn2(bb){
+			console.log(a)
+			console.log(bb)
+			console.log(arguments)//函数执行的实参列表(伪数组)
+			var a = 3;
+			function fn3 (){
+				console.log('fn3')
+			}
+		}
+		fn2(1,2);
+	</script>
+</html>

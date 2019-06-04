@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			读取对象属性值时,会自动在原型链中查找
+			
+			
+			
+		-->
+	</body>
+	<script type="text/javascript">
+		function Fn (){
+			
+		}
+		Fn.prototype.a = '111';
+		var fn1 = new Fn();
+		console.log(fn1.a,fn1)//111
+		var fn2 = new Fn();
+		fn2.a = '222';
+		console.log(fn1.a,fn2.a)
+		
+	</script>
+</html>

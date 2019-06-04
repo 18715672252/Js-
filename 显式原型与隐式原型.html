@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			1.每个函数都有一个prototype,即显式原型(属性),保存的值(地址值)指向一个空的object
+			2.每个对象都有一个__proto__,即隐式原型(属性),保存的值(地址值)指向一个空的object
+			3.对象的隐式原型的值为其对应构造函数的显示原型的值
+			4.总结
+			*函数的prototype属性:在定义函数是自动添加的,默认值是一个object空对象
+			*对象的__proto__属性:在创间对象自动添加.默认值为构造函数的prototype属性
+			*程序员能直接显式原型,但是不能直接操作隐式原型(es6之前)
+			
+			
+		-->
+		<img src="img/xianshiyuyinshi.jpg"/>
+	</body>
+	<script type="text/javascript">
+		//每个函数都有一个prototype,即显式原型(属性),默认指向一个空的object
+		function Fn (){//内部语句:this.prototype = {};
+			
+		}
+		console.log(Fn.prototype)
+		//2.每个对象都有一个__proto__,即隐式原型(属性),
+		var fn = new Fn();//内部语句:this.__proto__ = Fn.prototype
+		console.log(fn.__proto__);
+		//3.对象的隐式原型的值为其对应构造函数的显示原型的值
+		console.log(fn.__proto__ === Fn.prototype);
+		//给原型添加方法
+		Fn.prototype.test = function(){
+			console.log('aaaa')
+		}
+		//调用原型方法
+		console.log(fn)
+		fn.test()
+		//调用对象方法或者属性的时候 , 先在该对象里面找该方法(属性) , 如果找不到会在对象的__proto__里面找
+	</script>
+</html>

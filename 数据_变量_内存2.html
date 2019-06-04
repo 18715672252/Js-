@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	//问题:var a = ×××, a中保存的到底是什么
+	/*
+	 
+	 * 如果×××是基本数据 , 保存的就是这个数据
+	 * 如果×××是对象 , 保存的就是对象地址值
+	 * 如果×××是变量, 保存的×××的内存内容(可能是基本数据,也可能是地址值)
+	 * */
+	var a = 3;
+	var a = function(){
+		
+	}
+	var b = 'abc';
+	a = b;
+	b = {};
+	a = b;
+		
+	</script>
+</html>

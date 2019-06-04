@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		//思路:赋值时是把变量保存的内容,拷贝一份给另一个变量
+		//重要:重新给一个保存复杂数据类型的变量赋值,假入还赋值复杂数据类型的数据给这个变量 , 那这个变量保存的内容将改变为当前(最新)复杂数据类型的数据的地址值 , 与旧复杂数据类型的数据不在有任何关联
+		var arr = [1,2,3];
+		var arr1 = arr;
+		arr = [4,5,6];
+		console.log(arr)
+		console.log(arr1)
+		function A (){}
+		A.prototype.n = 1;
+		var b = new A();//此时会有这段代码执行:b.__proto__ = A.prototype 把A.prototype保存的内容(地址值)拷贝一份给b.__proto__
+		A.prototype = {//重新给A.prototype赋值(地址值)此时b.__proto__和A.prototype保存的内容(地址值)不一样
+			n:2,
+			m:3
+		}
+		var c = new A();
+		console.log(b.n,b.m,c.n,c.m)// 1 undefined 2 3
+		console.log('--------------------------------题目2')
+		console.log('--------------------------------题目2')
+		console.log('--------------------------------题目2')
+		//实例对象一定可以看到原型对象上的属性
+		//Object的原型对象的__proto__ 任何时候都为null
+		var F = function (){
+			
+		}
+		Object.prototype.a = function (){
+			console.log('1');
+		}
+		Function.prototype.b = function (){
+			console.log('2');
+		}
+		var f = new F();
+		f.a();//能找到
+		f.b();//找不到
+		F.a();//能找到
+		F.b();//能找到
+		
+	</script>
+	
+	
+	
+</html>

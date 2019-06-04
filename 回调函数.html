@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">点击事件</button>
+		<!--
+			
+			什么函数才是回调函数
+			1)你定义的
+			2)你没有调用
+			3)但是最终执行了
+			常见的回调函数
+		-->
+	</body>
+	<script type="text/javascript">
+		document.getElementById('btn').onclick = function(){//dom事件回调函数
+			alert(this.innerHTML)
+		}
+		
+		
+		
+	</script>
+</html>

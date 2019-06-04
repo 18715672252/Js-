@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			什么时候必须使用['属性名']的方式?
+			1.属性名包含特殊字符:- 空格
+			2.变量名不确定
+		-->
+	</body>
+	<script type="text/javascript">
+		var p = {};
+		//1.给p添加一个属性content-type:'text/json'
+		//p.content-type = 'text/json'  不能用
+		p['content-type'] = 'text/json'
+		console.log(p['content-type'])
+		//2.变量名不确定
+		var s = 'myage';
+		var v = 18;
+//		p.s = s 不能用
+		
+	</script>
+</html>
